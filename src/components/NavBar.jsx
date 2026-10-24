@@ -1,12 +1,21 @@
 import { useAuth } from "../hooks/hooks";
+import { useTheme } from "../contexts/themeContexts";
 import { Link } from "react-router-dom";
+
 const NavBar = () => {
   const { user, isAuthenticated, signout } = useAuth();
+  const { isDark, toggleTheme } = useTheme();
   return (
     <header className="bg-navbar px-6 py-4 shadow-sm flex items-center justify-between">
       <Link to="/" className="text-2xl font-bold text-plum tracking-tight">
         Coders App
       </Link>
+
+      <button
+        onClick={toggleTheme}
+        className="px-3 py-3 text-xs rounded bg-coding text-white cursor-pointer">
+        {isDark ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      </button>
 
       <nav className="flex items-center gap-4">
         <Link to="/" className="text-sm font-medium hover:text-plum transition">
@@ -39,7 +48,7 @@ const NavBar = () => {
           <div className="flex items-center gap-2">
             <Link
               to="/auth/sign_in"
-              className="text-sm font-medium text-gray-700 hover:text-plum px-3 py-2 rounded-md transition">
+              className="bg-[#3B82F7] hover:bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-md transition">
               Sign In
             </Link>
             <Link

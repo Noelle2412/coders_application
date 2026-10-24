@@ -27,3 +27,8 @@
   --color-coding: #23155B;
 
 }
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-color);
+}

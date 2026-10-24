@@ -68,7 +68,7 @@ const SignIn = () => {
           Sign In
         </button>
       </form>
-      <p className="text-sm">
+      <p className="text-sm text-black">
         New to CLA?{" "}
         <Link to="/auth/sign_up" className="text-[#3B82F7] hover:underline">
           Sign up

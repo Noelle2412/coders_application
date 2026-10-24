@@ -35,7 +35,7 @@ const Homepage = () => {
               </Link>
               <Link
                 to="/auth/sign_up"
-                className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium px-6 py-2.5 rounded-lg transition text-sm">
+                className="bg-[#3B82F7] hover:bg-blue-600 text-white font-medium px-6 py-2.5 rounded-lg transition text-sm">
                 Sign Up
               </Link>
             </div>
