@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { signup, signin, signout } from "./slices/authSlice";
+import { signup, signin, signout } from "../redux/store/slices/authSlice";
 
 /** Custom hook to access authentication state and actions.
  * Usage:

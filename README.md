@@ -10,9 +10,10 @@ A modern web application built with **React 19**, **Vite**, **Tailwind CSS**, an
   - Global authentication state (`user`, `isAuthenticated`) managed via a dedicated Redux store.
   - Three core authentication actions:
     - `signup`: Stores user profile data and sets authentication status to `true`.
-    - `signin`: Authenticates the user and updates session state.
+    - `signin`: Stores the user email and updates session state.
     - `signout`: Clears the user session and resets the state to guest mode.
   - Convenient `useAuth()` custom hook for interacting with the auth state anywhere in the application.
+    -Note: this is a mock, it does not connect to a backend where newly registered users could be stored and login attempts could be compared to existing users. As it is now, every email and every password work to sign in.
 
 - **Form Validation**:
   - Powered by **React Hook Form** and **Zod** schema validation for both Sign In and Sign Up forms.
@@ -79,6 +80,7 @@ coders_application/
 ## State Management Flow
 
 ### Auth State Structure
+
 ```javascript
 {
   auth: {
@@ -89,6 +91,7 @@ coders_application/
 ```
 
 ### Using the `useAuth` Hook
+
 Any component can access authentication state or trigger auth actions using `useAuth`:
 
 ```jsx
@@ -114,12 +117,14 @@ const MyComponent = () => {
 ## Getting Started
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (version 18 or newer recommended)
 - [npm](https://www.npmjs.com/)
 
 ### Installation
 
 1. Clone or open the repository:
+
    ```bash
    cd coders_application
    ```
@@ -132,9 +137,11 @@ const MyComponent = () => {
 ### Development Server
 
 Start the local Vite development server:
+
 ```bash
 npm run dev
 ```
+
 Open your browser and navigate to `http://localhost:5173` (or the URL shown in your terminal).
 
 ### Available Scripts
@@ -148,8 +155,8 @@ Open your browser and navigate to `http://localhost:5173` (or the URL shown in y
 
 ## Application Routes
 
-| Path | Description | Access |
-|---|---|---|
-| `/` | Homepage displaying auth status and user details | Public |
-| `/auth/sign_in` | Sign In form (validates email & password) | Public / Guest |
-| `/auth/sign_up` | Sign Up form (validates name, email, password) | Public / Guest |
+| Path            | Description                                      | Access         |
+| --------------- | ------------------------------------------------ | -------------- |
+| `/`             | Homepage displaying auth status and user details | Public         |
+| `/auth/sign_in` | Sign In form (validates email & password)        | Public / Guest |
+| `/auth/sign_up` | Sign Up form (validates name, email, password)   | Public / Guest |

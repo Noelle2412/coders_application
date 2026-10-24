@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useAuth } from "../redux/store/hooks";
+import { useAuth } from "../hooks/hooks";
 
 /** Route wrapper that redirects unauthenticated users to the sign-in page. */
 

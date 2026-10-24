@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import { useAuth } from "../redux/store/hooks";
+import { useAuth } from "../hooks/hooks";
 
 const RootLayout = () => {
   const { user, isAuthenticated, signout } = useAuth();

@@ -1,2 +1,2 @@
 export const ErrorMessage = ({ message }) =>
-  message ? <p className="text-red-500 text-sm -mt-2">{message}</p> : null;
+  message ? <p className="text-red-500 text-sm">{message}</p> : null;
