@@ -3,12 +3,18 @@
     "firstName": "Aischa",
     "lastName": "Amrhein",
     "email": "aischa.amrhein@example.com",
-    "password": 12345678
+    "password": 12345678,
+    "avatar": "AA",
+    "bio": "",
+    "rank": 15
   },
   {
     "firstName": "Tim",
     "lastName": "Uhl",
     "email": "tim.uhl@example.com",
-    "password": 12345678
+    "password": 12345678,
+    "avatar": "TU",
+    "bio": "",
+    "rank": 9
   }
 ]

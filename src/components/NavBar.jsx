@@ -34,7 +34,7 @@ const NavBar = () => {
 
         {isAuthenticated ? (
           <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-700">
+            <span className="text-sm">
               Welcome,{" "}
               <span className="font-semibold text-plum">{user.email}</span>
             </span>

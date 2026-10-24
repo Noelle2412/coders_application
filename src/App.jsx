@@ -6,6 +6,7 @@ import AuthLayout from "./pages/auth/layout";
 import Homepage from "./pages/Home/page";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnderConstruction from "./pages/UnderConstruction/page";
+import ProfilePage from "./pages/profile/page";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           />
           <Route
             path="/profile"
-            element={<ProtectedRoute children={<UnderConstruction />} />}
+            element={<ProtectedRoute children={<ProfilePage />} />}
           />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
