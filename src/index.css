@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Noto+Sans+Khojki&family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-navbar: #E5E7EB;
+  --bg-app: #CBd5E1;
+  --accent-color: #8053FF;
+  --text-color: black;
+}
+
+.dark {
+  --bg-navbar: #23155B;
+  --bg-app: #4322C9;
+  --text-color: white;
+  --accent-color: #ad8fff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Martel Sans", sans-serif, "Noto Sans Khojki", sans-serif;
+}
+
+@theme inline {
+  --color-plum: var(--accent-color);
+  --color-navbar: var(--bg-navbar);
+  --color-app: var(--bg-app);
+  --color-coding: #23155B;
+
+}
