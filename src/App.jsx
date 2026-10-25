@@ -4,9 +4,10 @@ import SignIn from "./pages/auth/sign_in/page";
 import SignUp from "./pages/auth/sign_up/page";
 import AuthLayout from "./pages/auth/layout";
 import Homepage from "./pages/Home/page";
+import ProfilePage from "./pages/profile/page";
+import Leaderboard from "./pages/Leaderboard/page";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UnderConstruction from "./pages/UnderConstruction/page";
-import ProfilePage from "./pages/profile/page";
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
         <Route element={<RootLayout />}>
           <Route path="/" element={<Homepage />} />
           <Route
-            path="/dashboard"
+            path="/leaderboard"
             element={
               <ProtectedRoute>
-                <UnderConstruction />
+                <Leaderboard />
               </ProtectedRoute>
             }
           />

@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 :root {
-  --bg-navbar: #E5E7EB;
-  --bg-app: #CBD5E1;
+  --bg-navbar: #CBD5E1;
+  --bg-app: #E5E7EB;
   --accent-color: #8053FF;
   --text-color: black;
 }

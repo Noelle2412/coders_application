@@ -22,9 +22,9 @@ const NavBar = () => {
           Home
         </Link>
         <Link
-          to="/dashboard"
+          to="/leaderboard"
           className="text-sm font-medium hover:text-plum transition">
-          Dashboard
+          Leaderboard
         </Link>
         <Link
           to="/profile"
