@@ -1,51 +1,50 @@
+import { useAuth } from "../hooks/hooks";
 import {
-  getCompletedChallengesByLevel,
   getNumberOfChallengesByLevel,
+  getCompletedChallengesByLevel,
 } from "../api/evalChallenges.js";
-import { useAuth } from "../hooks/hooks.js";
+
+const ProgressBar = ({ label, percent, color }) => (
+  <>
+    {label}:
+    <div className="h-6 w-full bg-gray-500 rounded-full overflow-hidden">
+      <div
+        className={`h-6 text-white text-center pt-0.5 px-0.5 rounded-full ${color}`}
+        style={{ width: `${percent}%` }}>
+        {percent}%
+      </div>
+    </div>
+  </>
+);
+
+const percentOf = (user, level) => {
+  const total = getNumberOfChallengesByLevel(level);
+  return total
+    ? Math.round((100 * getCompletedChallengesByLevel(user, level)) / total)
+    : 0;
+};
 
 const CompletedChallenges = () => {
   const { user } = useAuth();
-  const easy = Math.round(
-    (100 * getCompletedChallengesByLevel(user, "Easy")) /
-      getNumberOfChallengesByLevel("Easy"),
-  );
-  const easyWidth = Math.round((easy / 100) * 12);
-  const moderate = Math.round(
-    (100 * getCompletedChallengesByLevel(user, "Moderate")) /
-      getNumberOfChallengesByLevel("Moderate"),
-  );
-  const moderateWidth = Math.round((moderate / 100) * 12);
-  const hard = Math.round(
-    (100 * getCompletedChallengesByLevel(user, "Hard")) /
-      getNumberOfChallengesByLevel("Hard"),
-  );
-  const hardWidth = Math.round((hard / 100) * 12);
 
   return (
     <div className="shadow-2xl rounded-lg bg-app flex flex-col gap-4 p-4">
-      <h2 className="text-2xl">Completed Challenges</h2>
-      Easy:
-      <div className="h-6 w-full bg-gray-500 flex flex-row justify-start rounded-full">
-        <div
-          className={`w-${easyWidth}/12 h-6 text-white rounded-full flex flex-col items-center pt-0.5 bg-green-500`}>
-          {easy}%
-        </div>
-      </div>
-      Moderate:{" "}
-      <div className="h-6 w-full bg-gray-500 flex flex-row justify-start rounded-full">
-        <div
-          className={`w-${moderateWidth}/12 h-6 text-white rounded-full flex flex-col items-center pt-0.5 bg-yellow-500`}>
-          {moderate}%
-        </div>
-      </div>
-      Hard:
-      <div className="h-6 w-full bg-gray-500 flex flex-row justify-start rounded-full">
-        <div
-          className={`w-${hardWidth}/12 h-6 text-white rounded-full flex flex-col items-center pt-0.5 bg-red-500`}>
-          {hard}%
-        </div>
-      </div>
+      <h2 className="text-2xl text-center">Completed Challenges</h2>
+      <ProgressBar
+        label="Easy"
+        percent={percentOf(user, "Easy")}
+        color="bg-green-500"
+      />
+      <ProgressBar
+        label="Moderate"
+        percent={percentOf(user, "Moderate")}
+        color="bg-yellow-500"
+      />
+      <ProgressBar
+        label="Hard"
+        percent={percentOf(user, "Hard")}
+        color="bg-red-500"
+      />
     </div>
   );
 };

@@ -6,13 +6,6 @@
   --bg-app: #CBD5E1;
   --accent-color: #8053FF;
   --text-color: black;
-
-  --pannelColor-0: #b89ffc,
-    --pannelColor-2: #916afc,
-    --pannelColor-4: #7e52f7,
-    --pannelColor-10: #6f3cfa,
-    --pannelColor-20: #5a1fff,
-    --pannelColor-30: #2f03ad,
 }
 
 .dark {
@@ -20,13 +13,6 @@
   --bg-app: #4322C9;
   --text-color: white;
   --accent-color: #8053FF;
-
-  --pannelColor-0: #fadfc3,
-    --pannelColor-2: #fcca95,
-    --pannelColor-4: #fcbc77,
-    --pannelColor-10: #ffaf59,
-    --pannelColor-20: #fc9b32,
-    --pannelColor-30: #fa5902,
 }
 
 * {
@@ -39,13 +25,6 @@
   --color-navbar: var(--bg-navbar);
   --color-app: var(--bg-app);
   --color-coding: #23155B;
-
-  --color-pannel-0: var(--pannelColor-0);
-  --color-pannel-2: var(--pannelColor-2);
-  --color-pannel-4: var(--pannelColor-4);
-  --color-pannel-10: var(--pannelColor-10);
-  --color-pannel-30: var(--pannelColor-30);
-
 }
 
 body {

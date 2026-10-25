@@ -87,7 +87,7 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="rounded-xl max-w-2xl w-full">
+    <div className="rounded-xl w-full">
       {/* Top Header: Avatar + Edit Icon & Rank */}
       <div className="flex items-start justify-between">
         <div className="relative inline-block">
@@ -151,7 +151,7 @@ const UserProfile = () => {
       </h2>
 
       {/* Profile Form */}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
         {/* First Name Input */}
         <div>
           <label className="block text-sm font-medium mb-1">First Name</label>
