@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ErrorMessage } from "../../../components/ErrorMessage";
 import { useAuth } from "../../../hooks/hooks";
+import users from "../../../api/db/users.json";
 
 const signInSchema = z.object({
   email: z.email("Please enter a valid email address"),
@@ -15,6 +16,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, signin } = useAuth();
+  const [authError, setAuthError] = useState("");
 
   const {
     register,
@@ -33,14 +35,38 @@ const SignIn = () => {
   }, [isAuthenticated, navigate, location]);
 
   const onSubmit = (data) => {
-    signin(data);
-    const destination = location.state?.from?.pathname || "/";
-    navigate(destination, { replace: true });
+    setAuthError("");
+    const storedUsers = JSON.parse(
+      localStorage.getItem("registered_users") || "[]",
+    );
+    const allUsers = [...users, ...storedUsers];
+
+    const matchedUser = allUsers.find(
+      (user) =>
+        user.email.toLowerCase() === data.email.toLowerCase() &&
+        String(user.password) === String(data.password),
+    );
+
+    if (matchedUser) {
+      signin(matchedUser);
+      const destination = location.state?.from?.pathname || "/";
+      navigate(destination, { replace: true });
+    } else {
+      setAuthError("Invalid email or password. Please try again.");
+    }
   };
 
   return (
     <>
       <h1 className="text-plum text-3xl py-8"> Join Coders Now!</h1>
+
+      {authError && (
+        <div className="w-full px-8">
+          <p className="bg-red-100 border border-red-300 text-red-700 px-4 py-2 rounded text-sm text-center">
+            {authError}
+          </p>
+        </div>
+      )}
 
       <form
         onSubmit={handleSubmit(onSubmit)}

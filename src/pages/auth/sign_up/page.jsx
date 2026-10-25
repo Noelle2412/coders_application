@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ErrorMessage } from "../../../components/ErrorMessage.jsx";
 import { useAuth } from "../../../hooks/hooks.js";
+import users from "../../../api/db/users.json";
 
 const signUpSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -33,7 +34,31 @@ const SignUp = () => {
   }, [isAuthenticated, navigate]);
 
   const onSubmit = (data) => {
-    signup(data);
+    const newUser = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      avatar:
+        `${data.firstName?.[0] || ""}${data.lastName?.[0] || ""}`.toUpperCase(),
+      bio: "",
+      rank: 1,
+      completed: [],
+    };
+
+    users.push(newUser);
+
+    try {
+      const storedUsers = JSON.parse(
+        localStorage.getItem("registered_users") || "[]",
+      );
+      storedUsers.push(newUser);
+      localStorage.setItem("registered_users", JSON.stringify(storedUsers));
+    } catch (e) {
+      console.error("Failed to persist user in localStorage:", e);
+    }
+
+    signup(newUser);
     navigate("/", { replace: true });
   };
 

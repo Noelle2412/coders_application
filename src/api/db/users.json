@@ -6,7 +6,8 @@
     "password": 12345678,
     "avatar": "AA",
     "bio": "",
-    "rank": 15
+    "rank": 15,
+    "completed": ["423q1", "2r3kowpe"]
   },
   {
     "firstName": "Tim",
@@ -15,6 +16,7 @@
     "password": 12345678,
     "avatar": "TU",
     "bio": "",
-    "rank": 9
+    "rank": 9,
+    "completed": ["fkweap", "asdfa8"]
   }
 ]

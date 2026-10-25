@@ -16,11 +16,19 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route
             path="/dashboard"
-            element={<ProtectedRoute children={<UnderConstruction />} />}
+            element={
+              <ProtectedRoute>
+                <UnderConstruction />
+              </ProtectedRoute>
+            }
           />
           <Route
             path="/profile"
-            element={<ProtectedRoute children={<ProfilePage />} />}
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
           />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
