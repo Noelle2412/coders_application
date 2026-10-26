@@ -7,6 +7,7 @@ import Homepage from "./pages/Home/page";
 import ProfilePage from "./pages/profile/page";
 import Leaderboard from "./pages/Leaderboard/page";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Challenge from "./pages/Challenge/page";
 import UnderConstruction from "./pages/UnderConstruction/page";
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="/challenge/:id" element={<Challenge />} />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="sign_in" element={<SignIn />} />
