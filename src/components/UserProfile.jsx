@@ -3,7 +3,7 @@ import { useAuth } from "../hooks/hooks";
 import users from "../api/db/users.json";
 
 const UserProfile = () => {
-  const { user, signin } = useAuth();
+  const { user, signin, renderAvatar } = useAuth();
 
   // Initialize fields with user data if available
   const [firstName, setFirstName] = useState(user?.firstName || "");
@@ -92,23 +92,7 @@ const UserProfile = () => {
       <div className="flex items-start justify-between">
         <div className="relative inline-block">
           {/* Avatar Preview Circle */}
-          <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-app overflow-hidden flex items-center justify-center">
-            {avatar && avatar.length === 2 ? (
-              <div className="w-full h-full bg-plum flex items-center justify-center">
-                <div className="text-4xl text-white">{avatar}</div>
-              </div>
-            ) : avatar ? (
-              <img
-                src={avatar}
-                alt="Avatar Preview"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center text-gray-500">
-                <span className="text-sm">No photo</span>
-              </div>
-            )}
-          </div>
+          {renderAvatar(48)}
 
           {/* Edit Icon triggering file explorer */}
           <button

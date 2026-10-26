@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ErrorMessage } from "../../../components/ErrorMessage.jsx";
-import { useAuth } from "../../../hooks/hooks.js";
+import { useAuth } from "../../../hooks/hooks";
 import users from "../../../api/db/users.json";
 
 const signUpSchema = z.object({
