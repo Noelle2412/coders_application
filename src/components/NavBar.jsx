@@ -22,6 +22,11 @@ const NavBar = () => {
           Home
         </Link>
         <Link
+          to="/workspace/1"
+          className="text-sm font-medium hover:text-plum transition">
+          Challenges
+        </Link>
+        <Link
           to="/leaderboard"
           className="text-sm font-medium hover:text-plum transition">
           Leaderboard

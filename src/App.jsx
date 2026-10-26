@@ -33,7 +33,7 @@ function App() {
             }
           />
 
-          <Route path="/challenge/:id" element={<Challenge />} />
+          <Route path="/workspace/:challengeId" element={<Challenge />} />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="sign_in" element={<SignIn />} />
