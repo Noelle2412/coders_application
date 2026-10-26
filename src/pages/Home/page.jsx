@@ -9,7 +9,7 @@ const Homepage = () => {
       <header className="bg-navbar p-10 md:p-16 border-b border-gray-300">
         <h1 className="text-3xl md:text-4xl font-extrabold text-plum">
           {isAuthenticated
-            ? `Welcome back, ${user.email}!`
+            ? `Welcome back, ${user.firstName}!`
             : "Welcome to Coders Application"}
         </h1>
       </header>
