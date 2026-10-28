@@ -3,9 +3,10 @@ import { useTheme } from "../contexts/themeContexts";
 import { Link } from "react-router-dom";
 import logo from "../assets/hero.png";
 import { useState } from "react";
+import { renderAvatar } from "../../utils/RenderAvatar";
 
 const Navbar = () => {
-  const { user, isAuthenticated, signout, renderAvatar } = useAuth();
+  const { user, isAuthenticated, signout } = useAuth();
   const { isDark, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +46,7 @@ const Navbar = () => {
               onClick={() => {
                 setIsOpen((prev) => !prev);
               }}>
-              {renderAvatar(24)} {user.firstName} {user.lastName}
+              {renderAvatar(24, user)} {user.firstName} {user.lastName}
             </button>
 
             {isOpen && (

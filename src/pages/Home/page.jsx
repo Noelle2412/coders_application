@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/hooks";
 import CategoriesList from "../../components/CategoriesList";
 import ChallengesList from "../../components/ChallengesList";
+import TrendingCategoriesBox from "../../components/TrendingCategoriesBox";
+import TopKCodersList from "../../components/TopKCodersList";
 
 const Homepage = () => {
   const { user, isAuthenticated, signout } = useAuth();
@@ -12,6 +14,8 @@ const Homepage = () => {
       <p> Select Category </p>
       <CategoriesList />
       <ChallengesList />
+      <TrendingCategoriesBox />
+      <TopKCodersList />
     </div>
   );
 };

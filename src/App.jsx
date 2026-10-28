@@ -16,6 +16,7 @@ function App() {
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="/" element={<Homepage />} />
+          <Route path="/challenges" element={<Homepage />} />
           <Route
             path="/leaderboard"
             element={
@@ -32,7 +33,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
           <Route path="/workspace/:challengeId" element={<Challenge />} />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
