@@ -34,7 +34,7 @@ const Navbar = () => {
       <nav className="flex gap-4">
         <button
           onClick={toggleTheme}
-          className="px-3 py-3 text-xs rounded bg-coding text-white cursor-pointer">
+          className="px-3 py-3 text-xs rounded-lg bg-coding text-white cursor-pointer">
           {isDark ? "☀️ Light Mode" : "🌙 Dark Mode"}
         </button>
 
