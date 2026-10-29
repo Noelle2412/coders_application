@@ -94,7 +94,7 @@ const ChallengesList = () => {
                       value={{
                         style: {
                           verticalAlign: "middle",
-                          color: "darkgreen",
+                          color: isDark ? "lime" : "darkgreen",
                           fontSize: "1.5rem",
                         },
                       }}>
@@ -105,7 +105,7 @@ const ChallengesList = () => {
                       value={{
                         style: {
                           verticalAlign: "middle",
-                          color: "blue",
+                          color: isDark ? "lightblue" : "blue",
                           fontSize: "1.5rem",
                         },
                       }}>
@@ -116,7 +116,7 @@ const ChallengesList = () => {
                       value={{
                         style: {
                           verticalAlign: "middle",
-                          color: "orange",
+                          color: isDark ? "yellow" : "orange",
                           fontSize: "1.5rem",
                         },
                       }}>
