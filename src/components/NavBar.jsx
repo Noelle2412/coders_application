@@ -1,5 +1,4 @@
-import { useAuth } from "../hooks/hooks";
-import { useTheme } from "../contexts/themeContexts";
+import { useAuth, useTheme } from "../hooks/hooks";
 import { Link } from "react-router-dom";
 import logo from "../assets/hero.png";
 import { useState } from "react";

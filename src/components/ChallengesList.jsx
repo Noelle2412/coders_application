@@ -3,6 +3,7 @@ import { LuFileSpreadsheet } from "react-icons/lu";
 import { FaRegHourglass } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { useState } from "react";
+import { useTheme } from "../hooks/hooks";
 
 const challenges = [
   {
@@ -58,23 +59,24 @@ function Tooltip({ text, children }) {
 }
 
 const ChallengesList = () => {
+  const { isDark } = useTheme();
   return (
     <table className="text-center">
       <thead className="bg-navbar">
         <tr className="font-bold" key="Header">
-          <td className="pt-3 pb-2" key="Status Header">
+          <td className="pt-3 pb-2 mx-2" key="Status Header">
             Status
           </td>
-          <td className="pt-3 pb-2" key="Title Header">
+          <td className="pt-3 pb-2 mx-2" key="Title Header">
             Title
           </td>
-          <td className="pt-3 pb-2" key="Category Header">
+          <td className="pt-3 pb-2 mx-2" key="Category Header">
             Category
           </td>
-          <td className="pt-3 pb-2" key="Difficulty Header">
+          <td className="pt-3 pb-2 mx-2" key="Difficulty Header">
             Difficulty
           </td>
-          <td className="pt-3 pb-2" key="Solution Header">
+          <td className="pt-3 pb-2 mx-2" key="Solution Header">
             Solution Rate
           </td>
         </tr>

@@ -1,9 +1,10 @@
 import { useState, useRef } from "react";
 import { useAuth } from "../hooks/hooks";
 import users from "../api/db/users.json";
+import { renderAvatar } from "../../utils/RenderAvatar";
 
 const UserProfile = () => {
-  const { user, signin, renderAvatar } = useAuth();
+  const { user, signin } = useAuth();
 
   // Initialize fields with user data if available
   const [firstName, setFirstName] = useState(user?.firstName || "");
@@ -92,7 +93,7 @@ const UserProfile = () => {
       <div className="flex items-start justify-between">
         <div className="relative inline-block">
           {/* Avatar Preview Circle */}
-          {renderAvatar(48)}
+          {renderAvatar(48, user)}
 
           {/* Edit Icon triggering file explorer */}
           <button

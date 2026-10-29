@@ -1,6 +1,5 @@
 import HeatMap from "@uiw/react-heat-map";
-import { useTheme } from "../contexts/themeContexts";
-import { useAuth } from "../hooks/hooks";
+import { useTheme } from "../hooks/hooks";
 const dates = [
   { date: "2026/03/12", count: 2 },
   { date: "2026/04/26", count: 25 },
@@ -36,7 +35,7 @@ const SubmissionStrikes = () => {
 
   return (
     <div className="shadow-2xl rounded-lg bg-app p-4">
-      <h2 className="text-2xl text-center">Your coding strikes</h2>
+      <h2 className="text-2xl text-center">Your coding streaks</h2>
       <HeatMap
         value={dates}
         width={570}

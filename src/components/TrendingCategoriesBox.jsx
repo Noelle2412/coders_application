@@ -21,9 +21,9 @@ const trendingCategories = [
 
 const TrendingCategoriesBox = () => {
   return (
-    <div className="my-4">
+    <div className="my-4 shadow-lg p-4">
       <h2 className="text-2xl">Trending Categories</h2>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-4 flex-wrap">
         {trendingCategories.map((category) => {
           return (
             <button

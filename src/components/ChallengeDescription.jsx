@@ -1,5 +1,5 @@
 import MarkdownPreview from "@uiw/react-markdown-preview";
-import { useTheme } from "../contexts/themeContexts";
+import { useTheme } from "../hooks/hooks";
 
 const ChallengeDescription = ({ challenge }) => {
   const { isDark } = useTheme();

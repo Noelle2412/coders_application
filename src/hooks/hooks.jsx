@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { signup, signin, signout } from "../redux/store/slices/authSlice";
+import { toggleTheme } from "../redux/store/slices/themeSlice";
 
 /** Custom hook to access authentication state and actions.
  * Usage:
@@ -17,5 +19,22 @@ export const useAuth = () => {
   };
 };
 
-export const useAppDispatch = useDispatch;
-export const useAppSelector = useSelector;
+export const useTheme = () => {
+  const dispatch = useDispatch();
+  const { isDark } = useSelector((state) => state.theme);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
+
+  return {
+    isDark,
+    toggleTheme: () => dispatch(toggleTheme()),
+  };
+};

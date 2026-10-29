@@ -3,7 +3,7 @@ import ReactCodeMirror from "@uiw/react-codemirror";
 import { useState, useCallback } from "react";
 import { javascript } from "@codemirror/lang-javascript";
 import { python } from "@codemirror/lang-python";
-import { useTheme } from "../contexts/themeContexts";
+import { useTheme } from "../hooks/hooks";
 
 let tests = [
   {

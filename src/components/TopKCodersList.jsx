@@ -34,7 +34,7 @@ const TopKCodersList = () => {
   return (
     <div>
       <h2 className="text-2xl"> Top {TopCodersList.length} Coders</h2>
-      <div className="flex flex-col gap-4 w-md">
+      <div className="flex flex-col gap-4">
         {TopCodersList.map((coder) => {
           return (
             <div
