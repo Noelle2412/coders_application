@@ -93,7 +93,7 @@ const UserProfile = () => {
       <div className="flex items-start justify-between">
         <div className="relative inline-block">
           {/* Avatar Preview Circle */}
-          {renderAvatar(48, user)}
+          {renderAvatar(48, { ...user, avatar, firstName, lastName })}
 
           {/* Edit Icon triggering file explorer */}
           <button

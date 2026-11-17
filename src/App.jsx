@@ -4,7 +4,7 @@ import SignIn from "./pages/auth/sign_in/page";
 import SignUp from "./pages/auth/sign_up/page";
 import AuthLayout from "./pages/auth/layout";
 import Homepage from "./pages/Home/page";
-import ProfilePage from "./pages/profile/page";
+import ProfilePage from "./pages/Profile/page";
 import Leaderboard from "./pages/Leaderboard/page";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Challenge from "./pages/Challenge/page";
