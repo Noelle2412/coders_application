@@ -64,12 +64,13 @@ const SignUp = () => {
 
   return (
     <>
-      <h1 className="text-plum text-3xl py-8"> Join Coders Now!</h1>
+      <h1 className="text-plum text-3xl py-8"> Join Managers Now!</h1>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="flex flex-col gap-4 w-full px-8">
+        className="flex flex-col gap-4 w-full px-8"
+      >
         <input
           className="bg-coding text-white px-4 py-6 w-full border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-plum"
           type="text"
@@ -104,7 +105,8 @@ const SignUp = () => {
 
         <button
           type="submit"
-          className="bg-[#3B82F7] hover:bg-blue-600 text-white rounded-lg px-4 py-6 w-full border-0 font-medium transition cursor-pointer">
+          className="bg-[#3B82F7] hover:bg-blue-600 text-white rounded-lg px-4 py-6 w-full border-0 font-medium transition cursor-pointer"
+        >
           Sign up
         </button>
       </form>

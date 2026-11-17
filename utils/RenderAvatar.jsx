@@ -8,11 +8,13 @@ export function renderAvatar(size, user) {
           width: 2.5 * size + "px",
           height: 2.5 * size + "px",
         }}
-        className="rounded-full overflow-hidden flex items-center justify-center">
+        className="rounded-full overflow-hidden flex items-center justify-center"
+      >
         <div className="w-full h-full bg-plum flex items-center justify-center">
           <span
             style={{ fontSize: size + "px", marginTop: size / 6 + "px" }}
-            className="text-white">
+            className="text-white"
+          >
             {user.avatar}
           </span>
         </div>
@@ -21,8 +23,12 @@ export function renderAvatar(size, user) {
   } else {
     return (
       <div
-        style={{ width: size, height: size }}
-        className="rounded-full overflow-hidden flex items-center justify-center">
+        style={{
+          width: 2.5 * size + "px",
+          height: 2.5 * size + "px",
+        }}
+        className="rounded-full overflow-hidden flex items-center justify-center"
+      >
         <img
           src={user.avatar}
           alt="Avatar Preview"

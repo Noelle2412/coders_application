@@ -1,9 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavBar";
 
 const RootLayout = () => {
-  //This is not pretty yet, just to verify that the browser knows the user.
-
   return (
     <div className="min-h-screen flex flex-col bg-app">
       <Navbar />
