@@ -34,17 +34,19 @@ const SubmissionStrikes = () => {
   startDate.setFullYear(startDate.getFullYear() - 1);
 
   return (
-    <div className="shadow-2xl rounded-lg bg-app p-4">
+    <div className="shadow-2xl rounded-lg bg-app p-4 flex flex-col align-center">
       <h2 className="text-2xl text-center">Your coding streaks</h2>
-      <HeatMap
-        value={dates}
-        width={570}
-        rectSize={8}
-        startDate={startDate}
-        endDate={new Date()}
-        style={{ color: isDark ? "#fff" : "#000" }}
-        panelColors={isDark ? pannelColor.dark : pannelColor.light}
-      />
+      <div className="w-full overflow-x-auto">
+        <HeatMap
+          value={dates}
+          width={570}
+          rectSize={8}
+          startDate={startDate}
+          endDate={new Date()}
+          style={{ color: isDark ? "#fff" : "#000" }}
+          panelColors={isDark ? pannelColor.dark : pannelColor.light}
+        />
+      </div>
     </div>
   );
 };

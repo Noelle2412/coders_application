@@ -17,12 +17,61 @@ const UserProfile = () => {
 
   const fileInputRef = useRef(null);
 
+  const saveUserData = (updatedUser) => {
+    // 1. Update in-memory users.json
+    const userIndex = users.findIndex(
+      (u) => u.email?.toLowerCase() === updatedUser.email?.toLowerCase(),
+    );
+    if (userIndex !== -1) {
+      users[userIndex] = { ...users[userIndex], ...updatedUser };
+    } else {
+      users.push(updatedUser);
+    }
+
+    // 2. Update registered_users in localStorage
+    try {
+      const storedUsers = JSON.parse(
+        localStorage.getItem("registered_users") || "[]",
+      );
+      const storedIndex = storedUsers.findIndex(
+        (u) => u.email?.toLowerCase() === updatedUser.email?.toLowerCase(),
+      );
+      if (storedIndex !== -1) {
+        storedUsers[storedIndex] = {
+          ...storedUsers[storedIndex],
+          ...updatedUser,
+        };
+      } else {
+        storedUsers.push(updatedUser);
+      }
+      localStorage.setItem("registered_users", JSON.stringify(storedUsers));
+    } catch (err) {
+      console.error("Failed to update localStorage:", err);
+    }
+
+    // 3. Update Redux store and current_user in localStorage
+    signin(updatedUser);
+  };
+
   const handleAvatarChange = (event) => {
     const files = event.target.files;
     if (files && files.length > 0) {
       const selectedFile = files[0];
-      const preview = URL.createObjectURL(selectedFile);
-      setAvatar(preview);
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        const base64Avatar = reader.result;
+        setAvatar(base64Avatar);
+
+        const updatedUser = {
+          ...user,
+          avatar: base64Avatar,
+        };
+
+        saveUserData(updatedUser);
+      };
+
+      reader.readAsDataURL(selectedFile);
     }
   };
 
@@ -45,41 +94,7 @@ const UserProfile = () => {
       rank,
     };
 
-    const userIndex = users.findIndex(
-      (u) => u.email?.toLowerCase() === email?.toLowerCase(),
-    );
-
-    if (userIndex !== -1) {
-      users[userIndex] = {
-        ...users[userIndex],
-        ...updatedUser,
-      };
-    } else {
-      users.push(updatedUser);
-    }
-
-    try {
-      const storedUsers = JSON.parse(
-        localStorage.getItem("registered_users") || "[]",
-      );
-      const storedIndex = storedUsers.findIndex(
-        (u) => u.email?.toLowerCase() === email?.toLowerCase(),
-      );
-
-      if (storedIndex !== -1) {
-        storedUsers[storedIndex] = {
-          ...storedUsers[storedIndex],
-          ...updatedUser,
-        };
-      } else {
-        storedUsers.push(updatedUser);
-      }
-      localStorage.setItem("registered_users", JSON.stringify(storedUsers));
-    } catch (err) {
-      console.error("Failed to update localStorage:", err);
-    }
-
-    signin(updatedUser);
+    saveUserData(updatedUser);
 
     setSuccessMessage("Profile updated successfully!");
     setTimeout(() => {
@@ -100,13 +115,15 @@ const UserProfile = () => {
             type="button"
             onClick={handleEditClick}
             aria-label="Upload Avatar"
-            className="absolute bottom-1 right-1 bg-white dark:bg-gray-700 p-1.5 rounded-full shadow-md border hover:bg-gray-100 dark:hover:bg-gray-600 transition cursor-pointer">
+            className="absolute bottom-1 right-1 bg-white dark:bg-gray-700 p-1.5 rounded-full shadow-md border hover:bg-gray-100 dark:hover:bg-gray-600 transition cursor-pointer"
+          >
             <svg
               className="w-4 h-4 text-gray-700 dark:text-gray-200"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -196,7 +213,8 @@ const UserProfile = () => {
           )}
           <button
             type="submit"
-            className="ml-auto bg-[#3B82F7] hover:bg-blue-600 text-white font-medium px-6 py-2.5 rounded-lg transition cursor-pointer text-sm shadow-sm">
+            className="ml-auto bg-[#3B82F7] hover:bg-blue-600 text-white font-medium px-6 py-2.5 rounded-lg transition cursor-pointer text-sm shadow-sm"
+          >
             Update
           </button>
         </div>

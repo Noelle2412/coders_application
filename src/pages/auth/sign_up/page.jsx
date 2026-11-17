@@ -64,7 +64,7 @@ const SignUp = () => {
 
   return (
     <>
-      <h1 className="text-plum text-3xl py-8"> Join Managers Now!</h1>
+      <h1 className="text-plum text-3xl py-8"> Join Coders Now!</h1>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
