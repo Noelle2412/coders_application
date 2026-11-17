@@ -1,7 +1,11 @@
 export function renderAvatar(size, user) {
+  let avatar = "";
   if (!user.avatar) {
-    user.avatar = (user.firstName[0] + user.lastName[0]).toUpperCase();
-  } else if (user.avatar.length === 2) {
+    avatar = (user.firstName[0] + user.lastName[0]).toUpperCase();
+  } else {
+    avatar = user.avatar;
+  }
+  if (avatar.length === 2) {
     return (
       <div
         style={{
@@ -15,7 +19,7 @@ export function renderAvatar(size, user) {
             style={{ fontSize: size + "px", marginTop: size / 6 + "px" }}
             className="text-white"
           >
-            {user.avatar}
+            {avatar}
           </span>
         </div>
       </div>
@@ -30,7 +34,7 @@ export function renderAvatar(size, user) {
         className="rounded-full overflow-hidden flex items-center justify-center"
       >
         <img
-          src={user.avatar}
+          src={avatar}
           alt="Avatar Preview"
           className="w-full h-full object-cover"
         />

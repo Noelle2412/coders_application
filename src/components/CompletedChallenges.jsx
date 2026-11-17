@@ -4,14 +4,15 @@ import {
   getCompletedChallengesByLevel,
 } from "../api/evalChallenges.js";
 
-const ProgressBar = ({ label, percent, color }) => (
+const ProgressBar = ({ label, percent, color, numerator, denominator }) => (
   <>
     {label}:
     <div className="h-6 w-full bg-gray-500 rounded-full overflow-hidden">
       <div
         className={`h-6 text-white text-center pt-0.5 px-0.5 rounded-full ${color}`}
-        style={{ width: `${percent}%` }}>
-        {percent}%
+        style={{ width: `${percent}%` }}
+      >
+        {percent}% ({numerator}/{denominator})
       </div>
     </div>
   </>
@@ -34,16 +35,22 @@ const CompletedChallenges = () => {
         label="Easy"
         percent={percentOf(user, "Easy")}
         color="bg-green-500"
+        denominator={getNumberOfChallengesByLevel("Easy")}
+        numerator={getCompletedChallengesByLevel(user, "Easy")}
       />
       <ProgressBar
         label="Moderate"
         percent={percentOf(user, "Moderate")}
         color="bg-yellow-500"
+        denominator={getNumberOfChallengesByLevel("Moderate")}
+        numerator={getCompletedChallengesByLevel(user, "Moderate")}
       />
       <ProgressBar
         label="Hard"
         percent={percentOf(user, "Hard")}
         color="bg-red-500"
+        denominator={getNumberOfChallengesByLevel("Hard")}
+        numerator={getCompletedChallengesByLevel(user, "Hard")}
       />
     </div>
   );
